@@ -1,0 +1,23 @@
+.container{
+  margin-left: 120px;
+  margin-right: 45px; 
+}
+.button{
+    margin-left: 20px;
+    margin-right: 50px; 
+    padding-bottom: 20px;
+}
+.table {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border-collapse: collapse;
+  font-size: 15px; 
+  font-family:'Poppins';
+  border-collapse: collapse;
+  background: white;
+  color:black;
+}
+.thead {
+  background: linear-gradient(to bottom right, #0D98BA, #074C5D);
+  color:white;
+}
+

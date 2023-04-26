@@ -1,0 +1,56 @@
+.container{
+    margin-left: 150px;
+    margin-right: 50px; 
+}
+.button{
+    margin-left: 20px;
+    margin-right: 50px; 
+    padding-bottom: 20px;
+}
+.table {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border-collapse: collapse;
+  font-size: 18px; 
+  font-family:'Poppins';
+  border-collapse: collapse;
+  background: white;
+  color:black;
+}
+.thead {
+  background: linear-gradient(to bottom right, #0D98BA, #074C5D);
+  color:white;
+}
+
+tr.body{
+    font-size: 16px; /* change the font-size to your desired size */
+  }
+tfoot {
+    font-size: 18px; /* change the font-size to your desired size */
+    font-weight: bold; /* change the font-weight to your desired weight */
+  }
+  .modal-content {
+    background: linear-gradient(to bottom right, #0D98BA, #074C5D);
+    box-shadow:   2px 2px 5px rgba(0, 0, 0, 1);
+    font-size: 20px;
+    color:white;
+    border: none;
+  
+  }
+  .modal-dialog {
+    text-align: left;
+  }
+ 
+  .row {
+    font-family:  Arial, sans-serif;
+    margin-bottom: 15px;
+  }
+  
+  .form-group strong {
+    display: block;
+    font-size: 16px;
+    color:white;
+    font-weight: 500;
+    text-align: left;
+  }
+  
+  

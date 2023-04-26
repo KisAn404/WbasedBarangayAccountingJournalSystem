@@ -1,0 +1,35 @@
+/* public/css/custom.css */
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* change this to the color you want */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #aaaaaa; /* change this to the color you want */
+}
+.navbar-nav {
+    margin-left: auto;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .my-form-control {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .btn-outline-light {
+    color: #f8f9fa;
+    background-color: transparent;
+    border-color: #f8f9fa;
+  }
+  
+  .btn-outline-light:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }

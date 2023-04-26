@@ -1,0 +1,133 @@
+body {
+  background-image:  url('images/backgrounds/Bg2.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+}
+
+.box-form {
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom:5%;
+  width: 65%;
+  height: 550px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 50%;
+  align-items: stretch;
+  border: 1.5px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px 6px #0D98BA;
+  position: relative;
+}
+
+.box-form .left .overlay {
+  padding: 30px;
+  width: 50%;
+  height:70%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.box-form .right header {
+  text-align: center;
+  padding: 50px;
+}
+h1 {
+  font-size: 36px;
+  margin: 0;
+  color: white;
+}
+
+/* Center the login form on the page */
+
+.box-form .right {
+margin: 0 auto;
+padding: 50px;
+}
+
+
+/* Style the input fields */
+input[type="email"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+border-radius: 11px;
+border: 3px solid #27C2DA;
+margin-bottom: 15px;
+box-sizing: border-box;
+}
+
+
+/* Style the login button */
+
+.login-button {
+display: block; 
+margin: 0 auto; 
+margin-top: 25px;
+background-color: #1486B0; 
+color: white; 
+border-radius: 11px;
+border: 2px solid  #27C2DA;;
+padding: 8px 30px; 
+font-size: 16px; 
+cursor: pointer; 
+}
+
+
+.login-button:hover {
+background-color: #27C2DA; /* set a darker background color on hover */
+}
+
+
+
+/* Style the checkbox label */
+label {
+display: inline-block;
+margin-bottom: 10px;
+font-size: 13px;
+color: white;
+}
+
+/* Style the checkbox */
+input[type="checkbox"] {
+margin-right: 5px;
+}
+
+/* Style the forgot password link */
+a {
+display: inline-block;
+margin-left: 50px;
+margin-bottom: 10px;
+font-size: 13px;
+color: whitesmoke;
+}
+
+a:hover {
+color: #27C2DA;
+}
+
+.text-center-end {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.text-center {
+text-align: center;
+color:whitesmoke;
+margin-top: 15px;
+}
+
+.text-center a {
+color: White;
+font-size: 16px;
+margin-left: 10px;
+text-decoration: underline;
+}
+.text-center a:hover {
+color: #27C2DA; 
+}
