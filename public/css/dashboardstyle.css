@@ -8,7 +8,7 @@
 /* Styles for the heading */
 h2 {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 /* Styles for the cards */
@@ -66,7 +66,7 @@ h2 {
 
 .card-header {
   background: linear-gradient(to bottom right, #0D98BA, #074C5D);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Arial';
   font-size: 20px;
   padding: 10px;
   color: white;
@@ -74,24 +74,38 @@ h2 {
 
 .card-body {
   text-align: left;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;;
+  font-family:'Arial';
+  font-weight: bold;
   color: black;
   font-size: 25px;
   padding: 20px;
 }
 
-.table {
-  background: linear-gradient(to bottom right, #0D98BA, #074C5D);
-  border-radius: 5px;
-  box-shadow: 10px 10px 20px rgba(0,0,0,0.1); /* Add a shadow */
+.table-container {
+  max-height: 400px;
+  overflow-y: scroll;
 }
-th, td {
-  font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 400;;
-        color: white;
-    }
+
+.table-header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom right, #0D98BA, #074C5D);
+  color: white;
+  z-index: 1;
+}
+
+.table-header th {
+  text-align: center;
+}
+
+.table-body tr {
+  background-color: white;
+}
+
+.table-body td {
+  padding: 8px;
+  text-align: center;
+}
   
     #myChart {
       background: white;

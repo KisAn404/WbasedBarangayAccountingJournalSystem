@@ -30,6 +30,9 @@ return new class extends Migration
             $table->string('credit')->nullable();
             $table->decimal('amount', 10, 2)->default(0);
             $table->timestamps();
+            $table->string('d_name')->nullable();
+            $table->decimal('ending_balance',10,2)->default(0);
+
         });
     }
 

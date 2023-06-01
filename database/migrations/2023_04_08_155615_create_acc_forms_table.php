@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('avail_serialno_from');
             $table->integer('avail_serialno_to');
             $table->timestamps();
+            $table->integer('remain_avail_forms');
+            $table->integer('remain_avail_serialno_from');
+            $table->integer('remain_avail_serialno_to');
         });
     }
 

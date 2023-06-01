@@ -27,7 +27,22 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
+    protected function authenticated (Request $request,$user)
+    {
+        if($user->user_type == 'admin') {
+            return redirect()->route('dashboard');
+        }elseif ($user->user_type == 'treasurer') {
+            return redirect()->route('dashboard');
+        }elseif ($user->user_type == 'barangay officials') {
+            return redirect()->route('barangay officials.dashboard');
+    }else{
+        return redirect('/login');
+    }
+}
+public function showLoginForm()
+{
+    return view ('auth.login');
+}
     /**
      * Create a new controller instance.
      *

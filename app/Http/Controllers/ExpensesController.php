@@ -1,32 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Transaction;
-use App\Account;
+use App\Models\Transaction;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class ExpensesController extends Controller
 {
- public function index()
-{
-    $transactions = Transaction::where('type', 'expense')->paginate(4);
-
-    $total = $transactions->sum('amount');
-    $latest = Transaction::latest()->first();
-    return view('expense.index', ['transactions' => $transactions, 'total' => $total,$latest]);
-}
+    public function index()
+    {
+        $transactions = Transaction::where('type', 'expense')
+            ->latest('created_at')
+            ->paginate(10);
+    
+        $accounts = Account::all();
+        $total = Transaction::where('type', 'expense')->sum('amount');
+        $latest = Transaction::latest()->first();
+    
+        return view('admin.expense.index', compact('transactions', 'accounts', 'total', 'latest'));
+    }
    public function store(Request $request)
 {
     $validator = Validator::make($request->all(), [
-        'type' => 'required|in:collection,expense,deposit,withdraw',
         'date' => 'required',
         'payer_payee' => 'required',
+        'particulars' => 'required',
         'bank_account' => 'required',
         'type_of_fund' => 'required',
         'dv_no' => 'required_if:type,expense',
         'deposited_in' => 'required',
         'debit' => 'required|exists:accounts,acc_title',
-        'credit' => 'required|exists:accounts,acc_title',
+        'credit' => 'required',
         'amount' => 'required|numeric|min:0',
     ]);
         
@@ -37,9 +41,10 @@ class ExpensesController extends Controller
     }
 
     Transaction::create([
-        'type' => $request->input('type'),
+        'type' => 'expense',
         'date' => $request->input('date'),
         'payer_payee' =>  $request->input('payer_payee'),
+        'particulars' =>  $request->input('particulars'),
         'bank_account' => $request->input('bank_account'),
         'type_of_fund' => $request->input('type_of_fund'),
         'dv_no' => $request->input('dv_no'),
@@ -57,11 +62,12 @@ class ExpensesController extends Controller
 {
     $accounts = Account::all();
    $transactions=  Transaction::all();
-    return view('expense.create', compact('transactions','accounts'));
+    return view('admin.expense.create', compact('transactions','accounts'));
 }
 public function edit(Transaction $expense)
 {
-    return view('expense.edit', compact('expense'))->with('expense', $expense);
+    $accounts = Account::all();
+    return view('admin.expense.edit', compact('expense','accounts'))->with('expense', $expense);
 }
 
   public function update(Request $request, Transaction $expense)
@@ -70,6 +76,7 @@ public function edit(Transaction $expense)
     $validator = Validator::make($request->all(), [
         'date' => 'required',
         'payer_payee' => 'required',
+        'particulars' => 'required',
         'bank_account' => 'required',
         'type_of_fund' => 'required',
         'dv_no' => 'required',

@@ -1,31 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Transaction;
-use App\Account;
+use App\Models\Transaction;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class WithdrawController extends Controller
 {
- public function index()
-{
-    $transactions = Transaction::where('type', 'withdraw')->paginate(4);
-
-    $total = $transactions->sum('amount');
-    $latest = Transaction::latest()->first();
-    return view('withdraw.index', ['transactions' => $transactions, 'total' => $total,$latest]);
-}
+    public function index()
+    {
+        $transactions = Transaction::where('type', 'withdraw')
+            ->latest('created_at')
+            ->paginate(10);
+    
+        $accounts = Account::all();
+        $total = Transaction::where('type', 'withdraw')->sum('amount');
+        $latest = Transaction::latest()->first();
+    
+        return view('admin.withdraw.index', compact('transactions', 'accounts', 'total', 'latest'));
+    }
+    
    public function store(Request $request)
 {
     $validator = Validator::make($request->all(), [
-        'type' => 'required|in:collection,expense,deposit,withdraw',
         'date' => 'required',
         'payer_payee' => 'required',
         'bank_account' => 'required',
         'type_of_fund' => 'required',
-        'check_no' => 'required_if:type,Withdraw',
-        'dv_no' => 'required_if:type,Withdraw,Expense',
-        'pb_no' => 'required_if:type,Withdraw',
+        'check_no' => 'required_if:type,withdraw',
+        'dv_no' => 'required_if:type,withdraw,expense',
+        'pb_no' => 'required_if:type,withdraw',
         'particulars' =>'required',
         'deposited_in' => 'required',
         'debit' => 'required|exists:accounts,acc_title',
@@ -40,7 +44,7 @@ class WithdrawController extends Controller
     }
 
     Transaction::create([
-        'type' => $request->input('type'),
+        'type' => 'withdraw',
         'date' => $request->input('date'),
         'payer_payee' =>  $request->input('payer_payee'),
         'bank_account' => $request->input('bank_account'),
@@ -67,7 +71,8 @@ class WithdrawController extends Controller
 }
 public function edit(Transaction $withdraw)
 {
-    return view('withdraw.edit', compact('withdraw'))->with('withdraw', $withdraw);
+    $accounts = Account::all();
+    return view('withdraw.edit', compact('withdraw','accounts'))->with('withdraw', $withdraw);
 }
 
   public function update(Request $request, Transaction $withdraw)

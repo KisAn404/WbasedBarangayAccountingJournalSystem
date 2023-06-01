@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-Use App\AccForm;
+Use App\Models\AccForm;
 
 use Illuminate\Http\Request;
 
@@ -11,12 +11,12 @@ class AccFormController extends Controller
 public function index()
     {
         $acc_forms = AccForm::paginate(6);
-        return view('accform.index', compact('acc_forms'));
+        return view('admin.accform.index', compact('acc_forms'));
     }
 
     public function create()
     {
-        return view('accform.create');
+        return view('accform.index');
     }
 
     public function store(Request $request)

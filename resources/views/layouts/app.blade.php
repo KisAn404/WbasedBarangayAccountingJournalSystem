@@ -166,64 +166,6 @@ footer {
     margin-left: auto;
 }
 
-/*search box */
-.search-container{
-  position: relative;
-    background: #fff;
-    height: 30px;
-    border-radius: 30px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.8s;
-    /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    inset -7px -7px 10px 0px rgba(0,0,0,.1),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-   text-shadow:  0px 0px 6px rgba(255,255,255,.3),
-              -4px -4px 6px rgba(116, 125, 136, .2);
-   text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
-   box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-}
-.search-container:hover > .search-input,
-.search-container:focus-within > .search-input {
-  width: 200px;
-  transition-delay: 0.5s;
-
-}
-.search-container .search-input{
-    background: transparent;
-    border: none;
-    outline:none;
-    width: 0px;
-    font-weight: 400;
-    font-size: 16px;
-    transition: 0.8s;
-}
-.search-container .search-btn .fas{
-    color: #0D98BA;
-}
-.search-container:hover{
-  animation: hoverShake 0.15s linear 3;
-}
-
-.recent-activity-link {
-  display: block;
-  margin-top: 5px;
-}
-.fa-history {
-  font-size: 20px;
-  color:white;
-}
-.recent-activity {
-  position: absolute;
-  right: 150px;
-}
 </style>
 
 <!-- Sidebar -->
@@ -237,6 +179,7 @@ footer {
     <li><a href="{{ route('dashboard') }}" type="button" class="btn btn-link"><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i>Dashboard</a></li>
     <li><a class="btn btn-link" href="{{ route('account.index') }}"><i class="fas fa-list-alt mr-1"></i> Chart of Accounts</a></li>
     <li><a class="btn btn-link" href="{{ route('fund.index') }}"><i class="fas fa-money-bill-wave mr-1"></i> Funds</a></li>
+    <li><a class="btn btn-link" href="{{ route('bank.index') }}"><i class="fas fa-university mr-1"></i> Bank</a></li>
     <li><a class="btn btn-link" href="{{ route('accform.index') }}"><i class="fas fa-folder mr-1"></i> Accountable Forms</a></li>
     <li>
     <a class="btn" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
@@ -251,27 +194,14 @@ footer {
     </ul>
   </div>
   </li>
-
-  <li>
-  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3">
-  <i class="fas fa-chart-bar mr-1"></i>Reports<i class="fas fa-caret-down ml-1"></i>
-</a>
-  <div class="collapse" id="collapse3">
-    <ul>
-    <li><a href="{{ route('RCD') }}" type="button" class="btn btn-link"></i> RCD</a></li>
-    </ul>
-  </div>
-  </li>
-  </li>
-
+  <li><a class="btn btn-link" href="{{ route('reports.index') }}"><i class="fas fa-money-bill-wave mr-1"></i> Reports</a></li>
 <li>
   <a class="btn btn-link" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
   <i class="fas fa-cog"></i> Settings <i class="fas fa-caret-down ml-1"></i>
   </a>
     <div class="collapse" id="collapse2">
       <ul>
-        <li><a type="button" class="btn" href="{{ route('users.index') }}">Manage Users</a></li>
-        <li><a type="button" class="btn" href="{{ route('roles.index') }}">Manage Role</a></li>
+      <a href="{{ route('users.index') }}" class="btn">Manage Users</a>
       </ul>
     </div>
   </li>
@@ -289,17 +219,6 @@ footer {
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
-
-  <!-- search bar -->   
-    <div class="search-container">
-    <input type="text" name="search" placeholder="Search..." class="search-input">
-    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-    </div>
- 
-   <!-- recent activity -->   
-    <div class="recent-activity">
-    <a href="{{ route('activity-log.index') }}"> <i class="fas fa-history"></i> </a>
-    </div>
 
 <li class="nav-item">
             <li class="nav-item dropdown">

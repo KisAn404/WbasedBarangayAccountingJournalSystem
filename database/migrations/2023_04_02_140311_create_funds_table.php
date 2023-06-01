@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('bank_account');
             $table->decimal('amount', 10, 2)->default(0);
             $table->timestamps();
+            $table->decimal('cum_forwarded', 10, 2)->default(0);
+
         });
     }
 

@@ -14,14 +14,14 @@
 <!-- partial:index.partial.html -->
 <div class="box-form">
 	<div class="left">
-        <img src="images/backgrounds/bg3.jpg" alt="Image description">
-		<div class="overlay">
+        <img src="images/backgrounds/login.jpg" alt="Image description">` 
+ 		<div class="overlay">
 		</div>
 	</div>
 	
 		<div class="right">
 		<header>
-  		<h1>Hello Admin</h1>
+    <h1 class="welcome">Welcome!</h1>
 		</header>
     <div>
   <input id="email" class="block mt-1 w-full" type="email" name="email" 
@@ -57,23 +57,13 @@
     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
     <label for="remember_me" class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</label>
     
-  
-  @if (Route::has('password.request'))
-  <a href="{{ route('password.request') }}">
-    {{ __('Forgot your password?') }}
-  </a>
-  @endif
+ 
 </div>
 
 <button class="login-button"> {{ __('Log in') }}</button>
 <a href="{{ route('register') }}"></a>
 
-<div class="text center-end mt-4">
-<p class="text-center ">
-                Don't have an account? 
-                <a href="{{ route('register') }}">Register</a>
-            </p>
-        </div>
+
 </div>
 	
 </div>

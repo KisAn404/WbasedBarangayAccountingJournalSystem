@@ -5,31 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use FPDF;
-use App\Transaction;
-use App\AccForm;
+use App\Models\Transaction;
+Use App\Models\AccForm;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Carbon;
 
 class RCDController extends Controller
 {
-    public function index(Request $request)
-    {
-        $pdf = new FPDF('P', 'mm', 'Legal');
-        $transactions = Transaction::where('type', 'Collection')
-            ->whereDate('date', today())
-            ->get();
+ public function index(Request $request)
+{
+$start_date = Carbon::parse($request->input('start_date'))->toDateString();
+$end_date = Carbon::parse($request->input('end_date'))->toDateString();
 
-        $total_amount = $transactions->sum('amount');
+$pdf = new FPDF('P','mm','Legal');
+$pdf->SetMargins(20, 10, 20, 10); // 1 inch = 72 points
 
+$transactions = Transaction::where('type', 'collection')
+    ->whereBetween('date', [$start_date, $end_date])
+    ->orderby('date')
+    ->get();
 
-        // Get the latest RCD No. from the database
-        $latest_rcd_no = DB::table('transactions')->orderBy('rcd_no', 'desc')->value('rcd_no');
+$total_amount = $transactions->sum('amount');
+
+// Get the latest RCD No. from the database
+$latest_rcd_no = Transaction::where('type', 'collection')
+    ->whereBetween('date', [$start_date, $end_date])
+    ->orderBy('rcd_no', 'desc')
+    ->value('rcd_no');
+
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial', '', 14);
         $pdf->Cell(0, 1, 'Report of Collection and Deposit', 0, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $pdf->Cell(50,25,'Name of Barangay Treasurer: ESTRELLA A. CURAY',0,0); 
-        $pdf->Cell(120, 25, 'Date: '.now()->format('F d, Y'), 0,0,'R'); // display the current date
+       $pdf->Cell(120, 25, 'Date: '.$start_date, 0, 0, 'R'); // display the selected date range
+// display the current date
         $pdf->SetFont('Arial', '', 10);
         $pdf->Cell(0,0,'',0,1); 
         $pdf->Cell(0,35,'Name of Barangay: BULILIS, UBAY, BOHOL',0,0,'L'); 
@@ -72,10 +83,10 @@ foreach($transactions as $collection) {
 
  //DEPOSITS
 
-    $transactions = Transaction::where('type', 'Deposit')
-                          ->whereDate('date', today())
+$transactions = Transaction::where('type', 'deposit')
+                          ->whereDate('date', '>=', $start_date)
+                          ->whereDate('date', '<=', $end_date)
                           ->get();
-
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->Cell(190,5,'B. DEPOSITS',1,'C');
     $pdf->SetFont('Arial', '', 8);
@@ -175,51 +186,90 @@ foreach($transactions as $collection) {
 
 
     // third line
-    $acc_forms = AccForm::all();
-    $pdf->Ln();
-    $pdf->SetFont('Arial', '', 8);
+  // Retrieve the AccForm record for the Official Receipts form
+// Retrieve the AccForm record for accountable forms
+$acc_form = AccForm::where('form_name', 'Official Receipts')->first();
+// Determine if any forms have been issued
+$issued_forms = $request->input('avail_forms');
+$pdf->Ln();
+$pdf->SetFont('Arial', '', 8);
 
-    $pdf->Cell(30, 10, 'Without Money Value', 1, 0, 'C');
-foreach ($acc_forms as $acc_form) {
+$pdf->Cell(30, 10, 'AF#51', 1, 0, 'C');
+if ($issued_forms >= 0) {
+    // Calculate the serial numbers for the issued forms
+    $issued_forms=$acc_form->remain_avail_forms+1;
+    $forms=$acc_form->remain_avail_serialno_from-1;
+   
+
+    // Update the available forms and serial numbers
+    $acc_form->avail_forms = $issued_forms;
+    $acc_form->avail_serialno_from = $forms;
+
     $pdf->Cell(8, 10, $acc_form->avail_forms, 1, 0, 'C');
-    $pdf->Cell(17.1, 10, $acc_form->avail_serialno_from, 1, 0, 'C');
-    $pdf->Cell(15, 10, $acc_form->avail_serialno_to, 1, 0, 'C');
-    $pdf->Cell(8, 10, $acc_form->avail_forms, 1, 0, 'C');
-    $pdf->Cell(17.1, 10, $acc_form->avail_serialno_from, 1, 0, 'C');
-    $pdf->Cell(15, 10, $acc_form->avail_serialno_to, 1, 0, 'C');
+$pdf->Cell(17.1, 10, $acc_form->avail_serialno_from, 1, 0, 'C');
+$pdf->Cell(15, 10, $acc_form->avail_serialno_to, 1, 0, 'C');
+$pdf->Cell(8, 10,'-', 1, 0, 'C');
+$pdf->Cell(17.1, 10,'-', 1, 0, 'C');
+$pdf->Cell(15, 10, '-', 1, 0, 'C');
+}else{
+$pdf->Cell(8, 10, $acc_form->avail_forms, 1, 0, 'C');
+$pdf->Cell(17.1, 10,$acc_form->remain_avail_serialno_from, 1, 0, 'C');
+$pdf->Cell(15, 10, $acc_form->remain_avail_serialno_to, 1, 0, 'C');
+$pdf->Cell(8, 10,'-', 1, 0, 'C');
+$pdf->Cell(17.1, 10,'-', 1, 0, 'C');
+$pdf->Cell(15, 10, '-', 1, 0, 'C');
 }
+
+// Output the updated values in the PDF document
+
+
+
+
+
 
 //$date = date('Y-m-d'); // Replace this with the date you want to query
 
-$transactions_count = Transaction::whereDate('date', today())
-                ->selectRaw('or_no, count(*) as count')
-                ->count();
-
+$transactions_count = Transaction::where('or_no', '<>', null)
+               ->whereDate('date', '>=', $start_date)
+                          ->whereDate('date', '<=', $end_date)
+                ->selectRaw('count(distinct or_no) as count')
+                ->value('count');
+                
 $pdf->Cell(8, 10, $transactions_count, 1, 0, 'C');
 
-$date = date('Y-m-d'); // Replace this with the date you want to query
-
 $first_or_number = Transaction::where('or_no', '<>', null)
-    ->whereDate('created_at', $date)
+   ->whereDate('date', '>=', $start_date)
+    ->whereDate('date', '<=', $end_date)
+    ->orderby('date')
     ->min('or_no');
 
 $last_or_number = Transaction::where('or_no', '<>', null)
-    ->whereDate('created_at', $date)
+    ->whereDate('date', '>=', $start_date)
+    ->whereDate('date', '<=', $end_date)
     ->max('or_no');
 
 $pdf->Cell(17, 10, $first_or_number, 1, 0, 'C');
 $pdf->Cell(15, 10, $last_or_number, 1, 0, 'C');
 
 // Calculate the number of remaining forms and serial numbers
-$first_serial_number = DB::table('acc_forms')->min('avail_serialno_from');
-$last_serial_number = DB::table('acc_forms')->max('avail_serialno_to');
+
+$date = date('Y-m-d'); // Replace this with the date you want to query
+
+ $first_or_number = AccForm::where('form_name', 'Official Receipts')->min('avail_serialno_from');
+ $last_serial_number= AccForm::where('form_name', 'Official Receipts')->max('avail_serialno_to');
+$last_or_number = Transaction::where('or_no', '<>', null)
+    ->whereDate('date', '>=', $start_date)
+    ->whereDate('date', '<=', $end_date)
+    ->orderby('date')
+    ->max('or_no');
 
 $available_forms = $last_serial_number - $last_or_number;
+
 
 if ($available_forms > 0) {
     $pdf->Cell(8, 10, $available_forms, 1, 0, 'C');
 } else {
-    $pdf->Cell(8, 10, "No remaining forms", 1, 0, 'C');
+    $pdf->Cell(8, 10, "-", 1, 0, 'C');
 }
 
 $next_or_number = $last_or_number + 1;
@@ -227,15 +277,16 @@ $next_or_number = $last_or_number + 1;
 if ($next_or_number <= $last_serial_number) {
     $pdf->Cell(17, 10, $next_or_number, 1, 0, 'C');
 } else {
-    $pdf->Cell(17.1, 10, "No remaining OR numbers", 1, 0, 'C');
+    $pdf->Cell(17.1, 10, "-", 1, 0, 'C');
 }
 
-
-$pdf->Cell(15,10,$last_serial_number,1,0,'C');
-
-      
-
+$pdf->Cell(15, 10, $last_serial_number, 1, 0, 'C');
     $pdf->Ln(); 
+  function updateBalance($available_forms,$next_or_number,$last_serial_number) {
+    AccForm::where('form_name', 'Official Receipts')->update(['remain_avail_forms' => $available_forms, 'remain_avail_serialno_from'=> $next_or_number ,  'remain_avail_serialno_to'=> $last_serial_number]);
+ 
+} // get the last cash balance
+    updateBalance($available_forms,$next_or_number,$last_serial_number);
    $pdf->SetFont('Arial', '', 10);
  
     $pdf->MultiCell(190,5,'D. CERTIFICATION 
@@ -308,7 +359,7 @@ $pdf->Cell(15,10,$last_serial_number,1,0,'C');
    ',0);
 
 
-        $pdf->Output();
+       $pdf->Output();
         exit;
     }
 }

@@ -11,7 +11,7 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border-collapse: collapse;
   font-size: 18px; 
-  font-family:'Poppins';
+  font-family:'Arial';
   border-collapse: collapse;
   background: white;
   color:black;
@@ -41,7 +41,7 @@ tfoot {
   }
  
   .row {
-    font-family:  Arial, sans-serif;
+    font-family: 'Arial';
     margin-bottom: 15px;
   }
   

@@ -26,18 +26,15 @@ class FundController extends Controller
 {
     $validatedData = $request->validate([
         'src_of_fund' => 'required',
-        'bank_account' => 'required',
         'amount' => 'required|numeric|min:0',
     ]);
 
     $fund = Fund::where('src_of_fund', $validatedData['src_of_fund'])
-                ->where('bank_account', $validatedData['bank_account'])
                 ->first();
 
     if (!$fund) {
         $fund = new Fund;
         $fund->src_of_fund = $validatedData['src_of_fund'];
-        $fund->bank_account = $validatedData['bank_account'];
     }
 
     $fund->amount += $validatedData['amount'];
@@ -64,7 +61,6 @@ class FundController extends Controller
     {
         $request->validate([
             'src_of_fund' => 'required',
-            'bank_account' => 'required',
             'amount' => 'required',
         ]);
         $fund->update($request->all());
