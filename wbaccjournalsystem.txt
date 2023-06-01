@@ -1,0 +1,527 @@
+===Database wbaccjournalsystem
+
+== Table structure for table accounts
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|acc_title|varchar(255)|No|
+|acc_code|varchar(255)|No|
+|acc_category|varchar(255)|No|
+|acc_type|varchar(255)|No|
+== Dumping data for table accounts
+
+|1|Cash - In Local Treasury|1-01-01-010|Cash|Assets
+|2|Petty Cash|1-01-01-020|Cash|Assets
+|3|Cash in Bank - Local Currency, Current Account|1-01-02-010|Cash|Assets
+|4|Investment in Time Deposits|1-02-01-010|Cash|Assets
+|5|Accounts Receivable|1-03-01-010|Cash|Assets
+|6|Allowance for Impairment - Accounts Receivable|1-03-01-011|Cash|Assets
+|7|Due from Local Government Units|1-03-02-010|Cash|Assets
+|8|Advances for Payroll|1-03-03-010|Cash|Assets
+|9|Advances to Officers and Employees|1-03-03-020|Cash|Assets
+|10|Receivables - Disallowances/Charges|1-03-04-010|Cash|Assets
+|11|Due from Officers and Employees|1-03-04-020|Cash|Assets
+|12|Other Receivables|1-03-04-990|Cash|Assets
+|13|Allowance for Impairment - Other Receivables|1-03-04-991|Cash|Assets
+|14|Merchandise Inventory|1-04-01-010|Cash|Assets
+|15|Welfare Goods for Distribution|1-04-02-010|Cash|Assets
+|16|Drugs and Medicines for Distribution|1-04-02-020|Cash|Assets
+|17|Other Supplies and Materials for Distribution|1-04-02-990|Cash|Assets
+|18|Office Supplies Inventory|1-04-03-010|Cash|Assets
+|19|Accountable Forms, Plates and Stickers Inventory|1-04-03-020|Cash|Assets
+|20|Construction Materials Inventory|1-04-03-030|Cash|Assets
+|21|Other Supplies and Materials Inventory|1-04-03-990|Cash|Assets
+|22|Advances to Contractors|1-05-01-010|Cash|Assets
+|23|Other Prepayments|1-05-01-990|Cash|Assets
+|24|Investment Property - Land|1-06-01-010|Cash|Assets
+|25|Accumulated Property Lossess - Investment Property - Land|1-06-01-012|Cash|Assets
+|26|Investment Property - Buildings|1-06-01-020|Cash|Assets
+|27|Accumulated Depreciation - Investment Property - Buildings |1-06-01-021|Cash|Assets
+|28|Accumulated Impairment Losses- Investment Property - Buildings|1-06-01-022|Cash|Assets
+|29|Land|1-07-01-010|Property, Plant and Equipment|Assets
+|30|Accumulated Impairment Losses - Land|1-07-01-012|Property, Plant and Equipment|Assets
+|31|Other Land Improvements|1-07-02-990|Property, Plant and Equipment|Assets
+|32|Accumulated Depreciation - Other Land Improvements|1-07-02-991|Property, Plant and, Equipment|Assets
+|33|Accumulated Impairment Losses - Other Land Improvements|1-07-02-992|Property, Plant and Equipment|Assets
+|34|Road Networks|1-07-03-010|Property, Plant and Equipment|Assets
+|35|Accumulated Depreciation - Road Networks|1-07-03-011|Property, Plant and Equipment|Assets
+|36|Accumulated Impairment Losses - Road Networks|1-07-03-012|Property, Plant and Equipment|Assets
+|37|Flood Control Systems|1-07-03-020|Property, Plant and Equipment|Assets
+|38|Accumulated Depreciation - Flood Control Systems|1-07-03-021|Property, Plant and Equipment|Assets
+|39|Accumulated Impairment Losses - Flood Control Systems|1-07-03-022|Property, Plant and Equipment|Assets
+|40|Sewer Systems|1-07-03-030|Property, Plant and Equipment|Assets
+|41|Accumulated Depreciation - Sewer Systems|1-07-03-031|Property, Plant and Equipment|Assets
+|42|Accumulated Impairment Losses - Sewer Systems|1-07-03-032|Property, Plant and Equipment|Assets
+|43|Water Supply Systems|1-07-03-040|Property, Plant and Equipment|Assets
+|44|Accumulated Depreciation - Water Supply Systems|1-07-03-041|Property, Plant and Equipment|Assets
+|45|Accumulated Impairment Losses - Water Supply Systems|1-07-03-042|Property, Plant and Equipment|Assets
+|46|Parks, Plazas and Monuments|1-07-03-050|Property, Plant and Equipment|Assets
+|47|Accumulated Depreciation - Parks, Plazas and Monuments|1-07-03-051|Property, Plant and Equipment|Assets
+|48|Accumulated Impairment Losses - Parks, Plazas and Monuments|1-07-03-052|Property, Plant and Equipment|Assets
+|49|Other Infrastructure Assets|1-07-03-990|Property, Plant and Equipment|Assets
+|50|Accumulated Depreciation - Other Infrastructure Assets|1-07-03-991|Property, Plant and Equipment|Assets
+|51|Accumulated Impairment Losses - Other Infrastructure Assets|1-07-03-992|Property, Plant and Equipment|Assets
+|52|Buildings|1-07-04-010|Property, Plant and Equipment|Assets
+|53|Accumulated Depreciation -Buildings|1-07-04-011|Property, Plant and Equipment|Assets
+|54|Accumulated Impairment Losses -Buildings|1-07-04-012|Property, Plant and Equipment|Assets
+|55|School Buildings|1-07-04-020|Property, Plant and Equipment|Assets
+|56|Accumulated Depreciation - School Buildings|1-07-04-021|Property, Plant and Equipment|Assets
+|57|Accumulated Impairment Losses -School Buildings|1-07-04-022|Property, Plant and Equipment|Assets
+|58|Hospitals and Health Centers|1-07-04-030|Property, Plant and Equipment|Assets
+|59|Accumulated Depreciation - Hospitals and Health Centers|1-07-04-031|Property, Plant and Equipment|Assets
+|60|Accumulated Impairment Losses - Hospitals and Health Centers|1-07-04-032|Property, Plant and Equipment|Assets
+|61|Markets|1-07-04-040|Property, Plant and Equipment|Assets
+|62|Accumulated Depreciation - Markets|1-07-04-041|Property, Plant and Equipment|Assets
+|63|Accumulated Impairment Losses - Markets|1-07-04-042|Property, Plant and Equipment|Assets
+|64|Other Structures|1-07-04-990|Property, Plant and Equipment|Assets
+|65|Accumulated Depreciation - Other Structures|1-07-04-991|Property, Plant and Equipment|Assets
+|66|Accumulated Impairment Losses - Other Structures|1-07-04-992|Property, Plant and Equipment|Assets
+|67|Machinery|1-07-05-010|Property, Plant and Equipment|Assets
+|68|Accumulated Depreciation - Machinery|1-07-05-011|Property, Plant and Equipment|Assets
+|69|Accumulated Impairment Losses - Machinery|1-07-05-012|Property, Plant and Equipment|Assets
+|70|Office Equipment|1-07-05-020|Property, Plant and Equipment|Assets
+|71|Accumulated Depreciation - Office Equipment|1-07-05-021|Property, Plant and Equipment|Assets
+|72|Accumulated Impairment Losses - Office Equipment|1-07-05-022|Property, Plant and Equipment|Assets
+|73|Information and Communication Technology Equipment|1-07-05-030|Property, Plant and Equipment|Assets
+|74|Accumulated Depreciation - Information and Communication Technology Equipment|1-07-05-031|Property, Plant and Equipment|Assets
+|75|Accumulated Impairment Losses - Information and Communication Technology Equipment|1-07-05-032|Property, Plant and Equipment|Assets
+|76|Communication Equipment|1-07-05-040|Property, Plant and Equipment|Assets
+|77|Accumulated Depreciation - Communication Equipment|1-07-05-041|Property, Plant and Equipment|Assets
+|78|Accumulated Impairment Losses - Communication Equipment|1-07-05-042|Property, Plant and Equipment|Assets
+|79|Construction and Heavy Equipment|1-07-05-050|Property, Plant and Equipment|Assets
+|80|Accumulated Depreciation - Construction and Heavy Equipment|1-07-05-051|Property, Plant and Equipment|Assets
+|81|Accumulated Impairment Losses - Construction and Heavy Equipment|1-07-05-052|Property, Plant and Equipment|Assets
+|82|Disaster Response and Rescue Equipment|1-07-05-060|Property, Plant and Equipment|Assets
+|83|Accumulated Depreciation - Disaster Response and Rescue Equipment|1-07-05-061|Property, Plant and Equipment|Assets
+|84|Accumulated Impairment Losses - Disaster Response and Rescue Equipment|1-07-05-062|Property, Plant and Equipment|Assets
+|85|Military, Police and Security Equipment|1-07-05-070|Property, Plant and Equipment|Assets
+|86|Accumulated Depreciation - Military, Police and Security Equipment|1-07-05-071|Property, Plant and Equipment|Assets
+|87|Accumulated Impairment Losses - Military, Police and Security Equipment|1-07-05-072|Property, Plant and Equipment|Assets
+|88|Sports Equipment|1-07-05-080|Property, Plant and Equipment|Assets
+|89|Accumulated Depreciation - Sports Equipment|1-07-05-081|Property, Plant and Equipment|Assets
+|90|Accumulated Impairment Losses - Sports Equipment|1-07-05-082|Property, Plant and Equipment|Assets
+|91|Technical and Scientific Equipment|1-07-05-090|Property, Plant and Equipment|Assets
+|92|Accumulated Depreciation - Technical and Scientific Equipment|1-07-05-091|Property, Plant and Equipment|Assets
+|93|Accumulated Impairment Losses - Technical and Scientific Equipment|1-07-05-092|Property, Plant and Equipment|Assets
+|94|Other Machinery and Equipment|1-07-05-990|Property, Plant and Equipment|Assets
+|95|Accumulated Depreciation - Other Machinery and Equipment|1-07-05-991|Property, Plant and Equipment|Assets
+|96|Accumulated Impairment Losses - Other Machinery and Equipment|1-07-05-992|Property, Plant and Equipment|Assets
+|97|Motor Vehicles|1-07-06-010|Property, Plant and Equipment|Assets
+|98|Accumulated Depreciation - Motor Vehicles|1-07-06-011|Property, Plant and Equipment|Assets
+|99|Accumulated Impairment Losses - Motor Vehicles|1-07-06-012|Property, Plant and Equipment|Assets
+|100|Watercrafts|1-07-06-020|Property, Plant and Equipment|Assets
+|101|Accumulated Depreciation - Watercrafts|1-07-06-021|Property, Plant and Equipment|Assets
+|102|Accumulated Impairment Losses - Watercrafts Other Transportation Equipment|1-07-06-022|Property, Plant and Equipment|Assets
+|103|Accumulated Depreciation - Other Transportation Equipment|1-07-06-991|Property, Plant and Equipment|Assets
+|104|Accumulated Impairment Losses - Other Transportation Equipment|1-07-06-992|Property, Plant and Equipment|Assets
+|105|Furniture and Fixtures|1-07-07-010|Property, Plant and Equipment|Assets
+|106|Accumulated Depreciation - Furniture and Fixtures|1-07-07-011|Property, Plant and Equipment|Assets
+|107|Accumulated Impairment Losses - Furniture and Fixtures|1-07-07-012|Property, Plant and Equipment|Assets
+|108|Books|1-07-07-020|Property, Plant and Equipment|Assets
+|109|Accumulated Depreciation - Books|1-07-07-021|Property, Plant and Equipment|Assets
+|110|Accumulated Impairment Losses - Books|1-07-07-022|Property, Plant and Equipment|Assets
+|111|Leased Assets, Land|1-07-08-010|Property, Plant and Equipment|Assets
+|112|Accumulated Impairment Losses - Leased Assets, Land|1-07-08-012|Property, Plant and Equipment|Assets
+|113|Leased Assets, Buildings and Other Structures|1-07-08-020|Property, Plant and Equipment|Assets
+|114|Accumulated Depreciation - Leased Assets, Buildings and Other Structures|1-07-08-021|Property, Plant and Equipment|Assets
+|115|Accumulated Impairment Losses - Leased Assets, Buildings and Other Structures|1-07-08-022|Property, Plant and Equipment|Assets
+|116|Leased Assets, Machinery and Equipment|1-07-08-030|Property, Plant and Equipment|Assets
+|117|Accumulated Depreciation - Leased Assets, Machinery and Equipment|1-07-08-031|Property, Plant and Equipment|Assets
+|118|Accumulated Impairment Losses - Leased Assets, Machinery and Equipment|1-07-08-032|Property, Plant and Equipment|Assets
+|119|Leased Assets, Transportation Equipment|1-07-08-040|Property, Plant and Equipment|Assets
+|120|Accumulated Depreciation - Leased Assets, Transportation Equipment|1-07-08-041|Property, Plant and Equipment|Assets
+|121|Accumulated Impairment Losses - Leased Assets, Transportation Equipment|1-07-08-042|Property, Plant and Equipment|Assets
+|122|Other Leased Assets|1-07-08-990|Property, Plant and Equipment|Assets
+|123|Accumulated Depreciation - Other Leased Assets|1-07-08-991|Property, Plant and Equipment|Assets
+|124|Accumulated Impairment Losses - Other Leased Assets|1-07-08-992|Property, Plant and Equipment|Assets
+|125|Leased Assets Improvements, Land|1-07-09-010|Property, Plant and Equipment|Assets
+|126|Accumulated Depreciation - Leased Assets Improvements, Land|1-07-09-011|Property, Plant and Equipment|Assets
+|127|Accumulated Impairment Losses - Leased Assets Improvements, Land|1-07-09-012|Property, Plant and Equipment|Assets
+|128|Leased Assets Improvements, Buildings|1-07-09-020|Property, Plant and Equipment|Assets
+|129|Accumulated Depreciation - Leased Assets Improvements, Buildings|1-07-09-021|Property, Plant and Equipment|Assets
+|130|Accumulated Impairment Losses - Leased Assets Improvements, Buildings|1-07-09-022|Property, Plant and Equipment|Assets
+|131|Other Leased Assets Improvements|1-07-09-990|Property, Plant and Equipment|Assets
+|132|Accumulated Depreciation - Other Leased Assets Improvements|1-07-09-991|Property, Plant and Equipment|Assets
+|133|Accumulated Impairment Losses - Other Leased Assets Improvements|1-07-09-992|Property, Plant and Equipment|Assets
+|134|Construction in Progress - Land Improvements|1-07-10-010|Construction in Progress|Assets
+|135|Construction in Progress - Infrastructure Assets|1-07-10-020|Construction in Progress|Assets
+|136|Construction in Progress - Buildings and Other Structures|1-07-10-030|Construction in Progress|Assets
+|137|Construction in Progress - Leased Assets|1-07-10-040|Construction in Progress|Assets
+|138|Construction in Progress - Leased Assets Improvements|1-07-10-050|Construction in Progress|Assets
+|139|Other Property, Plant and Equipment|1-07-99-990|Other Property, Plant and Equipment|Assets
+|140|Accumulated Depreciation - Other Property, Plant and Equipment|1-07-99-991|Other Property, Plant and Equipment|Assets
+|141|Accumulated Impairment Losses - Other Property, Plant and Equipment|1-07-99-992|Other Property, Plant and Equipment|Assets
+|142|Biological Assets|1-08-01-010|Biological Assets|Assets
+|143|Accounts Payable|2-01-01-010|Financial Liabilities|Liabilities
+|144|Due to Officers and Employees|2-01-01-020|Financial Liabilities|Liabilities
+|145|Interest Payable|2-01-01-030|Financial Liabilities|Liabilities
+|146|Operating Lease Payable|2-01-01-040|Financial Liabilities|Liabilities
+|147|Leave Benefits Payable|2-01-02-010|Financial Liabilities|Liabilities
+|148|Loans Payable - Domestic|2-01-03-010|Financial Liabilities|Liabilities
+|149|Due to BIR|2-02-01-010|Inter-Agency Payables|Liabilities
+|150|Due to GSIS|2-02-01-020|Inter-Agency Payables|Liabilities
+|151|Due to Pag-IBIG|2-02-01-030|Inter-Agency Payables|Liabilities
+|152|Due to PhilHealth|2-02-01-040|Inter-Agency Payables|Liabilities
+|153|Due to NGAs|2-02-01-050|Inter-Agency Payables|Liabilities
+|154|Due to GOCCs|2-02-01-060|Inter-Agency Payables|Liabilities
+|155|Due to LGUs|2-02-01-070|Inter-Agency Payables|Liabilities
+|156|Trust Liabilities|2-03-01-010|Trust Liabilities|Liabilities
+|157|Guaranty/Security Deposits Payable|2-03-01-020|Trust Liabilities|Liabilities
+|158|Trust Liabilities - Disaster Risk Reduction and Management Fund (DRRMF)|2-03-01-030|Trust Liabilities|Liabilities
+|159|Trust Liabilities - SK Funds|2-03-01-040|Trust Liabilities|Liabilities
+|160|Other Payables|2-99-99-990|Trust Liabilities|Liabilities
+|161|Government Equity|3-01-01-010|Government Equity|Equity
+|162|Prior Years Adjustments|3-01-01-020|Government Equity|Equity
+|163|Revenue and Expense Summary|3-01-02-010|Government Equity|Equity
+|164|Real Property Tax|4-01-01-010|Revenue from Non-Exchange Transactions|Revenue
+|165|Business Tax|4-01-02-010|Revenue from Non-Exchange Transactions|Revenue
+|166|Share on the tax from sand, gravel and other quarry products|4-01-02-020|Revenue from Non-Exchange Transactions|Revenue
+|167|Fees and Charges on commercial breeding of fighting cocks, cockfights and cockpits|4-01-03-010|Revenue from Non-Exchange Transactions|Revenue
+|168|Fees and Charges on places of recreation which charge admission fees|4-01-03-020|Revenue from Non-Exchange Transactions|Revenue
+|169|Fees and Charges on billboards, signboards, neon signs and outdoor advertisements|4-01-03-030|Revenue from Non-Exchange Transactions|Revenue
+|170|Share from Internal Revenue Collections|4-01-04-010|Revenue from Non-Exchange Transactions|Revenue
+|171|Tax Revenue - Fines and Penalties- Property|4-01-05-010|Revenue from Non-Exchange Transactions|Revenue
+|172|Tax Revenue - Fines and Penalties- Goods and Services|4-01-05-020|Revenue from Non-Exchange Transactions|Revenue
+|173|Tax Revenue - Fines and Penalties- Others|4-01-05-030|Revenue from Non-Exchange Transactions|Revenue
+|174|Garbage Fees|4-01-06-010|Revenue from Non-Exchange Transactions|Revenue
+|175|Subsidy from National Government|4-02-01-010|Revenue from Non-Exchange Transactions|Revenue
+|176|Subsidy from Other Local Government Units|4-02-01-020|Revenue from Non-Exchange Transactions|Revenue
+|177|Share from National Wealth|4-03-01-010|Revenue from Non-Exchange Transactions|Revenue
+|178|Grants and Donations in Cash|4-03-02-010|Revenue from Non-Exchange Transactions|Revenue
+|179|Grants and Donations in Kind|4-03-02-020|Revenue from Non-Exchange Transactions|Revenue
+|180|Clearance and Certification Fees|4-04-01-010|Revenue from Exchange Transactions|Revenue
+|181|Other Service Revenue|4-04-01-990|Revenue from Exchange Transactions|Revenue
+|182|Gain on Sale of Property, Plant and Equipment|4-05-01-010|Revenue from Exchange Transactions|Revenue
+|183|Gain on Revaluation of Biological Assets|4-05-01-020|Revenue from Exchange Transactions|Revenue
+|184|Salaries and Wages - Regular|5-01-01-010|Expenses|Expenses
+|185|Salaries and Wages - Casual/Contractual|5-01-01-020|Expenses|Expenses
+|186|Personal Economic Relief Allowance (PERA)|5-01-02-010|Expenses|Expenses
+|187|Clothing/Uniform Allowance|5-01-02-020|Expenses|Expenses
+|188|Subsistence Allowance|5-01-02-030|Expenses|Expenses
+|189|Productivity Incentive Allowance|5-01-02-040|Expenses|Expenses
+|190|Honoraria|5-01-02-050|Expenses|Expenses
+|191|Year End Bonus|5-01-02-060|Expenses|Expenses
+|192|Cash Gift|5-01-02-070|Expenses|Expenses
+|193|Other Bonuses and Allowances|5-01-02-990|Expenses|Expenses
+|194|Retirement and Life Insurance Premiums|5-01-03-010|Expenses|Expenses
+|195|Pag-IBIG Contributions|5-01-03-020|Expenses|Expenses
+|196|PhilHealth Contributions|5-01-03-030|Expenses|Expenses
+|197|Employees Compensation Insurance Premiums|5-01-03-040|Expenses|Expenses
+|198|Terminal Leave Benefits|5-01-04-010|Expenses|Expenses
+|199|Other Personnel Benefits|5-01-04-990|Expenses|Expenses
+|200|Training Expenses|5-02-02-010|Expenses|Expenses
+|201|Office Supplies Expenses|5-02-03-010|Expenses|Expenses
+|202|Accountable Forms Expenses|5-02-03-020|Expenses|Expenses
+|203|Welfare Goods Expenses|5-02-03-030|Expenses|Expenses
+|204|Drugs and Medicines Expenses|5-02-03-040|Expenses|Expenses
+|205|Fuel, Oil and Lubricant Expenses|5-02-03-050|Expenses|Expenses
+|206|Other Supplies and Materials Expenses|5-02-03-990|Expenses|Expenses
+|207|Water Expenses|5-02-04-010|Expenses|Expenses
+|208|Electricity Expenses|5-02-04-020|Expenses|Expenses
+|209|Postage and Courier Services|5-02-05-010|Expenses|Expenses
+|210|Telephone Expenses|5-02-05-020|Expenses|Expenses
+|211|Internet Subscription Expenses|5-02-05-030|Expenses|Expenses
+|212|Cable, Satellite, Telegraph and Radio Expenses|5-02-05-040|Expenses|Expenses
+|213|Demolition and Relocation Expenses|5-02-06-010|Expenses|Expenses
+|214|Delisting and Dredging Expenses|5-02-06-020|Expenses|Expenses
+|215|Auditing Services|5-02-07-010|Expenses|Expenses
+|216|Consultancy Services|5-02-07-020|Expenses|Expenses
+|217|Other Professional Services|5-02-07-990|Expenses|Expenses
+|218|Environment/Sanitary Services|5-02-08-010|Expenses|Expenses
+|219|Janitorial Services|5-02-08-020|Expenses|Expenses
+|220|Security Services|5-02-08-030|Expenses|Expenses
+|221|Other General Services|5-02-08-990|Expenses|Expenses
+|222|Repairs and Maintenance - Land Improvements|5-02-09-010|Expenses|Expenses
+|223|Repairs and Maintenance - Infrastructure Assets|5-02-09-020|Expenses|Expenses
+|224|Repairs and Maintenance - Buildings and Other Structures|5-02-09-030|Expenses|Expenses
+|225|Repairs and Maintenance - Machinery and Equipment|5-02-09-040|Expenses|Expenses
+|226|Repairs and Maintenance - Transportation Equipment|5-02-09-050|Expenses|Expenses
+|227|Repairs and Maintenance - Furniture and Fixtures|5-02-09-060|Expenses|Expenses
+|228|Repairs and Maintenance - Leased Assets|5-02-09-070|Expenses|Expenses
+|229|Repairs and Maintenance - Leased Assets Improvements|5-02-09-080|Expenses|Expenses
+|230|Repairs and Maintenance - Other Property, Plant and Equipment|5-02-09-990|Expenses|Expenses
+|231|LGU Equity on Other LGU/National/Foreign Funded Projects|5-02-10-010|Expenses|Expenses
+|232|Transfer to TF unutilized current year allocation for LDRRMF|5-02-10-020|Expenses|Expenses
+|233|Transfer of SK allocation to STF|5-02-10-030|Expenses|Expenses
+|234|Subsidies - Others|5-02-10-990|Expenses|Expenses
+|235|Fidelity Bond Premiums|5-02-11-010|Expenses|Expenses
+|236|Insurance Expenses|5-02-11-020|Expenses|Expenses
+|237|Advertising Expense|5-02-99-010|Expenses|Expenses
+|238|Representation Expenses|5-02-99-020|Expenses|Expenses
+|239|Transportation and Delivery Expenses|5-02-99-030|Expenses|Expenses
+|240|Rent/Lease Expenses|5-02-99-040|Expenses|Expenses
+|241|Membership Dues and Contributions to Organizations|5-02-99-050|Expenses|Expenses
+|242|Subscription Expenses|5-02-99-060|Expenses|Expenses
+|243|Donations|5-02-99-070|Expenses|Expenses
+|244|Other Maintenance and Operating Expenses|5-02-99-990|Expenses|Expenses
+|245|Interest Expenses|5-03-01-010|Expenses|Expenses
+|246|Bank Charges|5-03-01-020|Expenses|Expenses
+|247|Other Financial Charges|5-03-01-990|Expenses|Expenses
+|248|Depreciation - Land Improvements|5-04-01-010|Expenses|Expenses
+|249|Depreciation - Infrastructure Assets|5-04-01-020|Expenses|Expenses
+|250|Depreciation - Buildings and Other Structures|5-04-01-030|Expenses|Expenses
+|251|Depreciation - Machinery and Equipment|5-04-01-040|Expenses|Expenses
+|252|Depreciation - Transportation Equipment|5-04-01-050|Expenses|Expenses
+|253|Depreciation - Furniture, Fixtures and Books|5-04-01-060|Expenses|Expenses
+|254|Depreciation - Leased Assets|5-04-01-070|Expenses|Expenses
+|255|Depreciation -Lease Assets Improvements|5-04-01-080|Expenses|Expenses
+|256|Depreciation - Other Property, Plant and Equipment|5-04-01-990|Expenses|Expenses
+|257|Impairment Loss - Land Improvements|5-04-02-010|Expenses|Expenses
+|258|Impairment Loss - Infrastructure Assets|5-04-02-020|Expenses|Expenses
+|259|Impairment Loss - Buildings and Other Structures|5-04-02-030|Expenses|Expenses
+|260|Impairment Loss - Machinery and Equipment|5-04-02-040|Expenses|Expenses
+|261|Impairment Loss - Transportation Equipment|5-04-02-050|Expenses|Expenses
+|262|Impairment Loss - Furniture, Fixtures and Books|5-04-02-060|Expenses|Expenses
+|263|Impairment Loss - Leased Assets|5-04-02-070|Expenses|Expenses
+|264|Impairment Loss - Lease Assets Improvements|5-04-02-080|Expenses|Expenses
+|265|Impairment Loss - Other Property, Plant and Equipment|5-04-02-990|Expenses|Expenses
+|266|Loss on Sale of Property,Plant and Equipment|5-04-03-010|Expenses|Expenses
+|267|Loss on Sale of Assets|5-04-03-020|Expenses|Expenses
+|268|Loss of Assets|5-04-03-030|Expenses|Expenses
+|269|Loss on Revaluation of Biological Assets|5-04-03-040|Expenses|Expenses
+== Table structure for table acc_forms
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|form_name|varchar(255)|No|
+|avail_forms|int(11)|No|
+|avail_serialno_from|int(11)|No|
+|avail_serialno_to|int(11)|No|
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+|remain_avail_forms|int(11)|Yes|NULL
+|remain_avail_serialno_from|int(11)|Yes|NULL
+|remain_avail_serialno_to|int(11)|Yes|NULL
+== Dumping data for table acc_forms
+
+|1|Official Receipts|50|3262801|3262850|2023-05-05 00:58:57|2023-05-26 06:58:39|49|3262802|3262850
+|2|DBP-Ubay|17|72814474|72814490|2023-05-05 01:00:17|2023-05-18 02:12:29|72814490|1|72814490
+== Table structure for table activity_log
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|user_id|bigint(20)|Yes|NULL
+|activity|text|No|
+|created_at|timestamp|No|current_timestamp()
+== Dumping data for table activity_log
+
+== Table structure for table banks
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|bank_acc|varchar(255)|No|
+|beg_bal|decimal(10,2)|No|0.00
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+|end_bal|decimal(10,2)|No|0.00
+|as_of|date|No|
+== Dumping data for table banks
+
+|1|DBP-Ubay|300000.00|2023-05-05 00:52:11|2023-05-05 00:52:11|0.00|2023-05-01
+|2|DBP-Ubay|120.00|2023-05-14 14:53:52|2023-05-14 14:53:52|0.00|2023-05-26
+== Table structure for table failed_jobs
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|**uuid**|varchar(255)|No|
+|connection|text|No|
+|queue|text|No|
+|payload|longtext|No|
+|exception|longtext|No|
+|failed_at|timestamp|No|current_timestamp()
+== Dumping data for table failed_jobs
+
+== Table structure for table funds
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|src_of_fund|varchar(255)|Yes|NULL
+|amount|decimal(10,2)|No|0.00
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+|cum_forwarded|decimal(10,2)|No|0.00
+== Dumping data for table funds
+
+|1|NATIONAL TAX ALLOTMENT|3629519.00|2023-05-05 00:44:23|2023-05-21 10:31:53|3931978.92
+|2|SHARE ON REAL PROPERTY TAX|89410.20|2023-05-05 00:45:09|2023-05-21 10:31:53|89410.20
+|3|BUSINESS TAXES|10950.00|2023-05-05 00:45:39|2023-05-21 10:31:53|10950.00
+|4|RENT INCOME|9222.00|2023-05-05 00:46:03|2023-05-21 10:31:53|9222.00
+|5|OTHER PERMITS AND LICENSES|6800.00|2023-05-05 00:46:35|2023-05-21 10:31:53|6800.00
+|6|SHARE ON COMMUNITY TAX|9669.00|2023-05-05 00:47:15|2023-05-21 10:31:53|9669.00
+|7|MISCELLANEOUS TAXES ON GOODS AND SERVICES|5300.00|2023-05-05 00:49:01|2023-05-21 10:31:53|5300.00
+|8|OTHER SERVICES INCOME|800.00|2023-05-05 00:49:36|2023-05-21 10:31:53|800.00
+|9|OTHER TAXES / PERMIT FEE|1798.00|2023-05-05 00:50:16|2023-05-21 10:31:53|1798.00
+|10|CLEARANCES AND CERTIFICATION FEES|65200.00|2023-05-05 00:51:06|2023-05-21 10:31:53|65200.00
+|11|SUBSIDY FROM PROV. / LGU|30000.00|2023-05-05 00:51:38|2023-05-21 10:31:53|30000.00
+|12|Donations From LGU Ubay|50000.00|2023-05-14 15:49:58|2023-05-14 15:49:58|0.00
+== Table structure for table migrations
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|migration|varchar(255)|No|
+|batch|int(11)|No|
+== Dumping data for table migrations
+
+|14|2014_10_12_000000_create_users_table|1
+|15|2014_10_12_100000_create_password_resets_table|1
+|16|2019_08_19_000000_create_failed_jobs_table|1
+|17|2019_12_14_000001_create_personal_access_tokens_table|1
+|18|2023_03_22_140520_create_permission_tables|1
+|19|2023_04_01_081036_add_admin_to_users_table|1
+|20|2023_04_02_140311_create_funds_table|1
+|21|2023_04_08_155615_create_acc_forms_table|1
+|22|2023_04_08_163010_create_accounts_table|1
+|23|2023_04_08_173612_create_transactions_table|1
+|24|2023_04_21_172247_create_activity_logs_table|1
+|25|2023_04_27_090636_add_user_type_to_users_table|1
+|26|2023_04_30_023909_create_bank_table|1
+== Table structure for table model_has_permissions
+
+|------
+|Column|Type|Null|Default
+|------
+|//**permission_id**//|bigint(20)|No|
+|//**model_type**//|varchar(255)|No|
+|//**model_id**//|bigint(20)|No|
+== Dumping data for table model_has_permissions
+
+== Table structure for table model_has_roles
+
+|------
+|Column|Type|Null|Default
+|------
+|//**role_id**//|bigint(20)|No|
+|//**model_type**//|varchar(255)|No|
+|//**model_id**//|bigint(20)|No|
+== Dumping data for table model_has_roles
+
+== Table structure for table password_resets
+
+|------
+|Column|Type|Null|Default
+|------
+|email|varchar(255)|No|
+|token|varchar(255)|No|
+|created_at|timestamp|Yes|NULL
+== Dumping data for table password_resets
+
+== Table structure for table permissions
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|**name**|varchar(255)|No|
+|**guard_name**|varchar(255)|No|
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+== Dumping data for table permissions
+
+== Table structure for table personal_access_tokens
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|tokenable_type|varchar(255)|No|
+|tokenable_id|bigint(20)|No|
+|name|varchar(255)|No|
+|**token**|varchar(64)|No|
+|abilities|text|Yes|NULL
+|last_used_at|timestamp|Yes|NULL
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+== Dumping data for table personal_access_tokens
+
+== Table structure for table roles
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|**name**|varchar(255)|No|
+|**guard_name**|varchar(255)|No|
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+== Dumping data for table roles
+
+== Table structure for table role_has_permissions
+
+|------
+|Column|Type|Null|Default
+|------
+|//**permission_id**//|bigint(20)|No|
+|//**role_id**//|bigint(20)|No|
+== Dumping data for table role_has_permissions
+
+== Table structure for table transactions
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|bank_account|varchar(255)|Yes|NULL
+|type_of_fund|varchar(255)|Yes|NULL
+|type|enum(&#039;deposit&#039;, &#039;collection&#039;, &#039;expense&#039;, &#039;withdraw&#039;)|Yes|NULL
+|date|date|Yes|NULL
+|payer_payee|varchar(255)|Yes|NULL
+|particulars|varchar(255)|Yes|NULL
+|or_no|varchar(255)|Yes|NULL
+|dv_no|varchar(255)|Yes|NULL
+|pb_no|varchar(255)|Yes|NULL
+|rcd_no|varchar(255)|Yes|NULL
+|check_no|varchar(255)|Yes|NULL
+|deposit_slip_no|varchar(255)|Yes|NULL
+|deposited_in|varchar(255)|Yes|NULL
+|debit|varchar(255)|Yes|NULL
+|credit|varchar(255)|Yes|NULL
+|amount|decimal(10,2)|No|0.00
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+|d_name|varchar(255)|Yes|NULL
+|ending_balance|decimal(10,2)|No|0.00
+|income_acc|varchar(255)|Yes|NULL
+== Dumping data for table transactions
+
+|3|DBP-Ubay|GFUND|withdraw|2023-05-05|Estrella A. Curay|To Cash Advance for Honoraria|NULL|100-2023-05|2023 BULILIS 05-001|NULL|72814474|NULL|Cash Advance|Honoraria|Cash in Bank - Local Currency, Current Account|50000.00|2023-05-05 01:05:38|2023-05-05 08:05:18|NULL|42000.00|NULL
+|4|DBP-Ubay|MOOE|expense|2023-05-05|Estrella A. Curay|Honorarium|NULL|100-2023-05-001|NULL|NULL|NULL|NULL|Cash Advance|Honoraria|Cash - In Local Treasury|8000.00|2023-05-05 01:07:39|2023-05-05 01:07:39|NULL|0.00|NULL
+|10|NULL|NULL|NULL|2023-05-13|Marcelo Tenio|Barangay Certfication|3262804|NULL|NULL|100-2023-04-001|NULL|NULL|Cash - In Local Treasury|Cash - In Local Treasury|Clearance and Certification Fees|130.00|2023-05-13 02:49:25|2023-05-13 02:49:25|NULL|0.00|Clearance and Certification Fees
+|11|NULL|NULL|NULL|2023-05-13|Estrella A. Curay|Barangay Certfication|3262804|NULL|NULL|100-2023-04-001|NULL|NULL|Cash - In Local Treasury|Cash - In Local Treasury|Clearance and Certification Fees|200.00|2023-05-13 02:50:55|2023-05-13 02:50:55|NULL|0.00|Clearance and Certification Fees
+|12|NULL|NULL|NULL|2023-05-13|Marcelo Tenio|Barangay Certfication|3262802|NULL|NULL|100-2023-04-001|NULL|NULL|Cash - In Local Treasury|Cash - In Local Treasury|Clearance and Certification Fees|130.00|2023-05-13 02:54:08|2023-05-13 02:54:08|NULL|0.00|Clearance and Certification Fees
+|49|DBP-Ubay|20%|expense|2023-05-16|Marcelo Tenio|Honoraria|NULL|100-2023-04-001|NULL|NULL|NULL|NULL|Cash Advance|Honoraria|Cash - In Local Treasury|5000.00|2023-05-16 13:22:27|2023-05-31 00:35:20|NULL|0.00|NULL
+|57|DBP-Ubay|NULL|deposit|2023-05-26|NULL|Estrella curay to deposit|NULL|NULL|NULL|NULL|NULL|12345678901|Cash in Bank|Cash in Bank - Local Currency, Current Account|Cash - In Local Treasury|160.00|2023-05-18 09:02:09|2023-05-31 00:33:13|NULL|0.00|NULL
+|60|NULL|NULL|collection|2023-05-24|Clariss Ann Ladica|barangay clearance|3262801|NULL|NULL|100-2023-05-24|NULL|NULL|Cash - In Local Treasury|Cash - In Local Treasury|Clearance and Certification Fees|80.00|2023-05-24 06:55:04|2023-05-24 06:55:04|NULL|0.00|Clearance and Certification Fees
+|61|NULL|NULL|collection|2023-05-26|Clariss Ann Ladica|barangay certification|3262801|NULL|NULL|100-2023-05-26|NULL|NULL|Cash - In Local Treasury|Cash - In Local Treasury|Clearance and Certification Fees|80.00|2023-05-26 06:57:44|2023-05-26 06:57:44|NULL|0.00|Clearance and Certification Fees
+== Table structure for table users
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|bigint(20)|No|
+|name|varchar(255)|No|
+|**email**|varchar(255)|No|
+|email_verified_at|timestamp|Yes|NULL
+|password|varchar(255)|No|
+|remember_token|varchar(100)|Yes|NULL
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+|is_admin|tinyint(1)|No|0
+|user_type|enum(&#039;admin&#039;, &#039;barangay officials&#039;)|No|admin
+== Dumping data for table users
+
+|1|Estrella A. Curay|admin@gmail.com|NULL|$2y$10$DtoTR1EZRcu49T2TLmByceluljjZ1nYk/8Mx.uCbU7Qd8qb1z4lNO|NULL|2023-05-05 00:41:50|2023-05-05 00:41:50|0|admin
+|2|Efren Salvador|salvador@gmail.com|NULL|$2y$10$RFEesAbjf0DKt1z9ULVJv.9IJAfeGXGcm0Fdmxdkqnfm346vpkA8e|NULL|2023-05-05 02:35:50|2023-05-05 02:35:50|0|barangay officials
